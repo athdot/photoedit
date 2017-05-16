@@ -1,0 +1,69 @@
+<html>
+<head>
+<img id="uploadedimg" src="https://vignette1.wikia.nocookie.net/meme/images/4/42/1385136139955.png/revision/latest?cb=20150207013804" style="position:absolute; display:none;" />
+<style>
+.tool{
+position:fixed;
+top:0;
+left:0;
+width: 150px;
+height: 100vh;
+border-right: 1px solid rgba(0,0,0,0.5);
+background-color: darkgray;
+}
+.canvas{
+position:fixed;
+top:0;
+right:0;
+background-color:gray;
+height: 100vh;
+}
+p {
+color: white; font-family: Verdana, Geneva, sans-serif;
+}
+.internatool{
+border: 1px solid rgba(0,0,0,0.5); 
+width: 130px;
+position:fixed; 
+bottom: 10px;
+left: 8px;
+}
+.imagewin{
+position:absolute;
+}
+</style>
+</head>
+<body onresize="reSize()" onload="reSize()">
+<div id="tools" class="tool">
+<img src="data:image/false;base64,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" style="width: 150px;" /><p style="color: white; font-family: Verdana, Geneva, sans-serif; position:fixed; top: 25px; left: 30px;">Photoshop</p><div style="background-color: rgba(0,0,0,0.5); width: 100%; height: 1px; position:fixed; top: 70px;"></div><p style="position:fixed; top: 60px; left: 50px; font-size: 13px;">Tools:</p><div id="toolbar" class="internatool"></div>
+
+</div>
+<div id="canvas" class="canvas">
+<script>
+//Make canvas right size
+function reSize(){
+var div = document.getElementById('canvas');
+div.style.width = (window.innerWidth-151);
+var tooldiv = document.getElementById('toolbar');
+tooldiv.style.height = (window.innerHeight-102);
+}
+</script>
+
+<div id="img" style="top: 50px; left: 200px; width: 300px; height: 300px; background-image: url('https://steamuserimages-a.akamaihd.net/ugc/395553315328270704/5182552889AF62A2AE66B8C79CD41D1FF66B03AD/'); border-radius: 10px;" class="imagewin">
+<div id="topimgbar" style="position:absolute; top:0; left:0; width: 100%; height: 20px; background-color: darkgray; border-top-left-radius: 10px; border-top-right-radius: 10px; border: 1px solid rgba(0,0,0,0.5);"><p id="nametext" style="color: black; position:absolute; top:-11; font-size: 13px; left: 50%; transform:translate(-50%,0);">Untitled.png</p></div>
+<div id="imagecontent" style="position:absolute; bottom:0; left:0; width: 100%; height: 277px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border:1px solid rgba(0,0,0,0.5); background-image:url('http://vignette2.wikia.nocookie.net/tome-of-the-sun/images/5/57/Transparent_Background.png/revision/latest?cb=20160121033835');">
+
+<canvas id="imagecan" style="position:absolute; top:2.5px; left:5px;" width="290" height="270"></canvas>
+<script id="canvascontroller">
+    var c=document.getElementById("imagecan");
+    var ctx=c.getContext("2d");
+    var img=document.getElementById("uploadedimg");
+    ctx.drawImage(img,-300,-200);
+
+</script>
+</div>
+</div>
+
+</div>
+</body>
+</html>
