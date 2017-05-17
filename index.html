@@ -85,11 +85,16 @@ tooldiv.style.height = (window.innerHeight-102);
 </script>
 
 <div id="draggable" style="top: 50px; left: 200px; width: 400px; height: 350px; background-image: url('https://steamuserimages-a.akamaihd.net/ugc/395553315328270704/5182552889AF62A2AE66B8C79CD41D1FF66B03AD/'); border-radius: 10px;" class="imagewin">
+<script>
+document.getElementById('draggable').style.width = document.getElementById('uploadedimg').width+14;
+document.getElementById('draggable').style.height = document.getElementById('uploadedimg').height+34;
+</script>
 <div id="scroll1" class="horsc"></div>
 <div id="scroll2" class="vertsc"></div>
 <div style="background-color: rgba(90,90,90,1); height: 13px; width: 13px;position:absolute; z-index: 21; bottom:-1; right: -2px; border-bottom-right-radius:5px; border-right: 1px solid rgba(0,0,0,0.4); border-bottom: 1px solid rgba(0,0,0,0.4);"></div>
 <div id="topimgbar" style="position:absolute; top:0; left:0; width: 100%; height: 20px; background-color: darkgray; border-top-left-radius: 10px; border-top-right-radius: 10px; border: 1px solid rgba(0,0,0,0.5);"><p id="nametext" style="color: black; position:absolute; top:-11; font-size: 13px; left: 50%; transform:translate(-50%,0);">Untitled.png</p><p style="color: rgba(0,0,0,0.4); position:absolute; top:-12; font-size: 13px; right: 10px;"><b>✕</b></p></div>
 <div id="imagecontent" class="imgdiv">
+<canvas id="imagecan" style="position:absolute; top:0px; left:0px;" width="290" height="265"></canvas>
 <script>
   $( function() {
     $( "#draggable" ).draggable();
@@ -100,11 +105,11 @@ document.getElementById('scroll1').style = "width: " + dragptwo + ";";
 var dragy = document.getElementById('draggable').style.height;
 var dragptwoy = dragy.substring(0,dragy.length-2);
 var dragpthree = parseInt(dragptwoy)-23;
+document.getElementById('imagecan').width = dragptwo-12;
+document.getElementById('imagecan').height = dragpthree-12;
 document.getElementById('imagecontent').style = "height: " + dragpthree + ";";
 document.getElementById('scroll2').style = "height: " + dragpthree + ";";
 </script>
-<canvas id="imagecan" style="position:absolute; top:0px; left:0px;" width="290" height="265"></canvas>
-
 <script id="canvascontroller">
     var c=document.getElementById("imagecan");
     var ctx=c.getContext("2d");
